@@ -1,5 +1,5 @@
 import forecastio
-from weather.config import LATITUDE, LONGITUDE, FORECAST_IO_KEY
+from .config import LATITUDE, LONGITUDE, FORECAST_IO_KEY
 
 
 FORECAST = forecastio.load_forecast(FORECAST_IO_KEY, LATITUDE, LONGITUDE)
