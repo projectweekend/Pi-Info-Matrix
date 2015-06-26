@@ -24,7 +24,7 @@ def weather_info():
     return "Weather"
 
 
-def bus_info(matrix):
+def bus_info():
     return "Bus"
 
 
