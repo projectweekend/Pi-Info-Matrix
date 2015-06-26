@@ -25,10 +25,12 @@ class InfoMatrix(object):
         draw = ImageDraw.Draw(image)
         return image, draw
 
-    def write_weather(self, temp, percip):
+    def update_weather(self, temp, percip):
         message = '{0} F'.format(int(round(temp)))
         image, draw = self._image_draw()
         draw.text((0, 0), message, (255, 0, 0), font=self._font)
+        self._matrix.Clear()
+        self._matrix.SetImage(image.im.id, 0, 0)
 
     def write_bus(self):
         image, draw = self._image_draw()
@@ -44,7 +46,7 @@ def main():
         if timestamp() - last_weather_reading >= WEATHER_INTERVAL:
             weather = weather_info()
             last_weather_reading = timestamp()
-        matrix.write_weather(weather['temperature'], weather['precipType'])
+        matrix.update_weather(weather['temperature'], weather['precipType'])
         time.sleep(CHANGE_INTERVAL)
 
         matrix.write_bus()
