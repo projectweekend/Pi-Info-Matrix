@@ -1,0 +1,7 @@
+import os
+
+
+LATITUDE = os.getenv('LATITUDE', 41.885432)
+LONGITUDE = os.getenv('LONGITUDE', -87.643029)
+FORECAST_IO_KEY = os.getenv('FORECAST_IO_KEY')
+assert FORECAST_IO_KEY

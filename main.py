@@ -1,6 +1,8 @@
 import time
 from PIL import Image, ImageDraw, ImageFont
 from rgbmatrix import Adafruit_RGBmatrix
+from weather import weather_info
+from bus import bus_info
 
 
 INTERVAL = 5
@@ -20,20 +22,13 @@ class InfoMatrix(object):
         self._matrix.SetImage(image.im.id, 0, 0)
 
 
-def weather_info():
-    return "Weather"
-
-
-def bus_info():
-    return "Bus"
-
-
 def main():
     matrix = InfoMatrix()
     while True:
         weather = weather_info()
         matrix.clear_and_write(weather)
         time.sleep(INTERVAL)
+
         bus = bus_info()
         matrix.clear_and_write(bus)
         time.sleep(INTERVAL)
