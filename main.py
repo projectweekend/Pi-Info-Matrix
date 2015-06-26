@@ -44,6 +44,7 @@ def main():
     while True:
         print("Start loop")
         if timestamp() - last_weather_reading >= WEATHER_INTERVAL:
+            print("Updating weather")
             weather = weather_info()
             last_weather_reading = timestamp()
         matrix.update_weather(weather['temperature'], weather['precipType'])
