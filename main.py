@@ -26,9 +26,9 @@ class InfoMatrix(object):
         return image, draw
 
     def write_weather(self, temp, percip):
-        temp = '{0} F'.format(int(round(temp)))
+        message = '{0} F'.format(int(round(temp)))
         image, draw = self._image_draw()
-        draw.text((0, 0), temp, (255, 0, 0), font=self._font)
+        draw.text((0, 0), message, (255, 0, 0), font=self._font)
 
     def write_bus(self):
         image, draw = self._image_draw()
@@ -40,6 +40,7 @@ def main():
     last_weather_reading = timestamp()
     weather = weather_info()
     while True:
+        print("Start loop")
         if timestamp() - last_weather_reading >= WEATHER_INTERVAL:
             weather = weather_info()
             last_weather_reading = timestamp()
