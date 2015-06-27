@@ -24,7 +24,8 @@ def main():
         time.sleep(CHANGE_INTERVAL)
         buses = bus_info()
         for route, predictions in buses.iteritems():
-            matrix.write_bus(route, predictions)
+            next_bus = predictions[0] if predictions else 'None'
+            matrix.write_bus(route, next_bus)
             time.sleep(CHANGE_INTERVAL)
 
 
