@@ -2,9 +2,7 @@ import forecastio
 from .config import LATITUDE, LONGITUDE, FORECAST_IO_KEY
 
 
-FORECAST = forecastio.load_forecast(FORECAST_IO_KEY, LATITUDE, LONGITUDE)
-
-
 def weather_info():
-    currently = FORECAST.currently()
+    forecast = forecastio.load_forecast(FORECAST_IO_KEY, LATITUDE, LONGITUDE)
+    currently = forecast.currently()
     return currently.d
