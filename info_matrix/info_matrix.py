@@ -18,7 +18,7 @@ class InfoMatrix(object):
         image, draw = self._image_draw()
         draw.text(
             (1, 0),
-            '{0}°'.format(int(round(temp))),
+            '{0} f'.format(int(round(temp))),
             (255, 0, 0),
             font=self._font)
         draw.text(
