@@ -20,7 +20,7 @@ def main():
         if timestamp() - last_weather_reading >= WEATHER_INTERVAL:
             weather = weather_info()
             last_weather_reading = timestamp()
-        matrix.update_weather(weather['temperature'], weather['precipType'])
+        matrix.update_weather(weather['temperature'], weather.get('precipType', 'None'))
         time.sleep(CHANGE_INTERVAL)
         buses = bus_info()
         for route, predictions in buses.iteritems():
