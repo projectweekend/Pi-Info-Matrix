@@ -26,9 +26,18 @@ class InfoMatrix(object):
         return image, draw
 
     def update_weather(self, temp, percip):
-        message = '{0} F'.format(int(round(temp)))
+
         image, draw = self._image_draw()
-        draw.text((0, 0), message, (255, 0, 0), font=self._font)
+        draw.text(
+            (0, 0),
+            '{0} F'.format(int(round(temp))),
+            (255, 0, 0),
+            font=self._font)
+        draw.text(
+            (0, 14),
+            percip,
+            (255, 0, 0),
+            font=self._font)
         self._matrix.Clear()
         self._matrix.SetImage(image.im.id, 0, 0)
 
