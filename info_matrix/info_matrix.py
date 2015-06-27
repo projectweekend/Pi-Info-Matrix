@@ -6,7 +6,7 @@ class InfoMatrix(object):
 
     def __init__(self):
         self._matrix = Adafruit_RGBmatrix(32, 1)
-        self._font = ImageFont.truetype("/usr/share/fonts/truetype/freefont/FreeSans.ttf", 12)
+        self._font = ImageFont.truetype("/usr/share/fonts/truetype/freefont/FreeSans.ttf", 10)
 
     @staticmethod
     def _image_draw():
