@@ -32,5 +32,6 @@ class InfoMatrix(object):
     def write_bus(self, route, predictions):
         image, draw = self._image_draw()
         draw.text((0, 0), '{0}:'.format(route), (255, 0, 0), font=self._font)
+        draw.text((0, 13), '21:39', (255, 0, 0), font=self._font)
         self._matrix.Clear()
         self._matrix.SetImage(image.im.id, 0, 0)
