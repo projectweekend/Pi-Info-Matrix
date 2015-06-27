@@ -16,18 +16,16 @@ def main():
     matrix = InfoMatrix()
     last_weather_reading = timestamp()
     weather = weather_info()
-    print(weather)
     while True:
         if timestamp() - last_weather_reading >= WEATHER_INTERVAL:
-            print("Updating weather")
             weather = weather_info()
-            print(weather)
             last_weather_reading = timestamp()
         matrix.update_weather(weather['temperature'], weather['precipType'])
         time.sleep(CHANGE_INTERVAL)
-
-        matrix.write_bus()
-        time.sleep(CHANGE_INTERVAL)
+        buses = bus_info()
+        for route, predictions in buses.iteritems():
+            matrix.write_bus(route, predictions)
+            time.sleep(CHANGE_INTERVAL)
 
 
 if __name__ == '__main__':
